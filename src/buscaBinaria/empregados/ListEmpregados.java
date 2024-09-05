@@ -12,17 +12,24 @@ public class ListEmpregados {
     }
 
     public void addEmpregados(String nome, double salario) {
-        empregados.add(new Empregado());
+        empregados.add(new Empregado(nome, salario));
     }
 
-    public void ordenarEmpregaDosPorNome() {
+    public void exibirEmpregadoos() {
+        if (empregados.isEmpty())
+            return;
+
+        System.out.println(empregados);
+    }
+
+    public void ordenarEmpregadosPorNome() {
         if (empregados.isEmpty())
             return;
 
         Collections.sort(empregados, new OrdenarPorNome());
     }
 
-    public void ordenarEmpregaDosPorSalario() {
+    public void ordenarEmpregadosPorSalario() {
         if (empregados.isEmpty())
             return;
 
@@ -95,8 +102,8 @@ public class ListEmpregados {
                 return;
             }
 
-            if(nome.charAt(0) > empregados.get(meio).getNome().charAt(0))
-                inicio = meio + 1; 
+            if (nome.charAt(0) > empregados.get(meio).getNome().charAt(0))
+                inicio = meio + 1;
             else {
                 fim = meio - 1;
             }
